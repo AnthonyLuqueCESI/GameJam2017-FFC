@@ -11,6 +11,7 @@ public class MovePlayerScript : MonoBehaviour {
 
 	public static int x = 1;
 	public static int y = 0;
+	public static int rotate = 0;
 
 	float timeLeft = 0.8f;
 	float timeLeft2 = 1f;
@@ -37,21 +38,25 @@ public class MovePlayerScript : MonoBehaviour {
 
 		if (GetComponent<Rigidbody2D> ().velocity.x == 0 && GetComponent<Rigidbody2D> ().velocity.y < 0) {
 			GetComponent<Rigidbody2D> ().rotation = 270;
+			rotate = 270;
 			x = 0;
 			y = -1;
 			makeStepSound ();
 		}else if (GetComponent<Rigidbody2D> ().velocity.x == 0 && GetComponent<Rigidbody2D> ().velocity.y > 0) {
 			GetComponent<Rigidbody2D> ().rotation = 90;
+			rotate = 90;
 			x = 0;
 			y = 1;
 			makeStepSound ();
 		}else if (GetComponent<Rigidbody2D> ().velocity.x < 0 && GetComponent<Rigidbody2D> ().velocity.y == 0) {
 			GetComponent<Rigidbody2D> ().rotation = 180;
+			rotate = 180;
 			x = -1;
 			y = 0;
 			makeStepSound ();
 		}else if (GetComponent<Rigidbody2D> ().velocity.x > 0 && GetComponent<Rigidbody2D> ().velocity.y == 0) {
 			GetComponent<Rigidbody2D> ().rotation = 0;
+			rotate = 0;
 			makeStepSound ();
 			x = 1;
 			y = 0;
@@ -62,16 +67,19 @@ public class MovePlayerScript : MonoBehaviour {
 			makeStepSound ();
 		}else if (GetComponent<Rigidbody2D> ().velocity.x < 0 && GetComponent<Rigidbody2D> ().velocity.y > 0) {
 			GetComponent<Rigidbody2D> ().rotation = 135;
+			rotate = 135;
 			x = -1;
 			y = 1;
 			makeStepSound ();
 		}else if (GetComponent<Rigidbody2D> ().velocity.x > 0 && GetComponent<Rigidbody2D> ().velocity.y < 0) {
 			GetComponent<Rigidbody2D> ().rotation = 315;
+			rotate = 315;
 			x = 1;
 			y = -1;
 			makeStepSound ();
 		}else if (GetComponent<Rigidbody2D> ().velocity.x > 0 && GetComponent<Rigidbody2D> ().velocity.y > 0) {
 			GetComponent<Rigidbody2D> ().rotation = 45;
+			rotate = 45;
 			x = 1;
 			y = 1;
 			makeStepSound ();

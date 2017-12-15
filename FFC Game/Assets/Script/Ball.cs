@@ -26,8 +26,14 @@ public class Ball : MonoBehaviour {
 	void Start()
 	{
 		direction = new Vector2(MovePlayerScript.x, MovePlayerScript.y);
+		print (MovePlayerScript.rotate);
 		// 2 - Destruction programmée
 		Destroy(gameObject, 5); // 5sec
+	}
+
+	void awake(){
+		GetComponent<Rigidbody2D> ().rotation = MovePlayerScript.rotate;
+
 	}
 
 	void Update()
